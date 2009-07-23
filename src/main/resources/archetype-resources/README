@@ -1,0 +1,16 @@
+Name: <project name>
+Description:
+Institution:
+Authors:
+
+=== Building ===
+
+To build this project, use
+
+    >>> mvn compile
+
+=== Running ===
+
+To run a test file, use
+
+    >>> mvn exec:java -Dexec.mainClass=MySkalchApp -Dexec.args="-h"

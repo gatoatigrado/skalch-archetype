@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.berkeley.cs.sketch</groupId>
+  <artifactId>skalch-archetype</artifactId>
+  <version>0.1</version>
+  <name>Archetype - skalch-archetype</name>
+
+  <distributionManagement>
+        <repository>
+            <id>cobol</id>
+            <name>cobol maven repository</name>
+            <url>scp://cobol.cs.berkeley.edu/home/ntung/public_html/mvn</url>
+        </repository>
+    </distributionManagement>
+</project>
