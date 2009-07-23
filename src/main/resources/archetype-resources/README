@@ -11,6 +11,11 @@ To build this project, use
 
 === Running ===
 
-To run a test file, use
+To display usage information, use
 
-    >>> mvn exec:java -Dexec.mainClass=MySkalchApp -Dexec.args="-h"
+    >>> mvn exec:java -Dexec.mainClass=${package}.MyAppMain -Dexec.args="-h"
+
+To execute the sketch, use
+
+    >>> mvn exec:java -Dexec.mainClass=${package}.MyAppMain -Dexec.args=""
+

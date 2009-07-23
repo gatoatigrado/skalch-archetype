@@ -8,7 +8,7 @@
     <version>$version</version>
 
     <properties>
-        <skalch.version>git-master</skalch.version>
+        <skalch.version>0.01-SNAPSHOT</skalch.version>
         <scala.version>2.8.0-SNAPSHOT</scala.version>
         <maven.scala.version>2.12-SNAPSHOT</maven.scala.version>
     </properties>
@@ -16,9 +16,14 @@
 
 
     <dependencies>
-        <dependency>    
+        <dependency>
             <groupId>edu.berkeley.cs.sketch</groupId>
-            <artifactId>skalch</artifactId>
+            <artifactId>skalch-base</artifactId>
+            <version>${dollar}{skalch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.berkeley.cs.sketch</groupId>
+            <artifactId>skalch-plugin</artifactId>
             <version>${dollar}{skalch.version}</version>
         </dependency>
     </dependencies>
@@ -38,5 +43,50 @@
             <url>http://cobol.cs.berkeley.edu:8008/mvn/</url>
         </repository>
     </repositories>
+    
+    
+    
+    <build>
+        <sourceDirectory>src/main</sourceDirectory>
+        <testSourceDirectory>src/test</testSourceDirectory>
+        <outputDirectory>bin</outputDirectory>
+        <plugins>
+            <!-- scala build plugin -->
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>${dollar}{maven.scala.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>${dollar}{scala.version}</scalaVersion>
+                    <compilerPlugins>
+                        <dependency>
+                            <groupId>edu.berkeley.cs.sketch</groupId>
+                            <artifactId>skalch-plugin</artifactId>
+                            <version>${dollar}{skalch.version}</version>
+                        </dependency>
+                    </compilerPlugins>
+                </configuration>
+            </plugin>
+
+            <!-- identify java source version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

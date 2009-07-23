@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="scala_with_readme_license">
+  <fileSets>
+    <fileSet filtered="true" packaged="true">
+      <directory>src/main/scala</directory>
+      <includes>
+        <include>**/*.scala</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true">
+      <directory></directory>
+      <includes>
+        <include>README</include>
+        <include>LICENSE</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
