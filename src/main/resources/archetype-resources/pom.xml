@@ -8,7 +8,7 @@
     <version>$version</version>
 
     <properties>
-        <skalch.version>0.01</skalch.version>
+        <skalch.version>0.02</skalch.version>
         <scala.version>2.8.0-alpha-build183</scala.version>
         <maven.scala.version>2.12-alpha</maven.scala.version>
     </properties>
@@ -19,6 +19,11 @@
         <dependency>
             <groupId>edu.berkeley.cs.sketch</groupId>
             <artifactId>skalch-base</artifactId>
+            <version>${dollar}{skalch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.berkeley.cs.sketch</groupId>
+            <artifactId>sketch-util</artifactId>
             <version>${dollar}{skalch.version}</version>
         </dependency>
         <dependency>
