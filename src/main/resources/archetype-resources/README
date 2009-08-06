@@ -3,19 +3,17 @@ Description:
 Institution:
 Authors:
 
-=== Building ===
+=== Start a DVCS repository ===
+
+for Mercurial,
+    >>> hg init; rm .gitignore; hg commit -A
+
+for Git,
+    >>> git init; rm .hgignore; git commit -a
+
+=== Building and running ===
 
 To build this project, use
+    >>> mvn compile exec:java -Dexec.mainClass=${package}.MyAppMain -Dexec.args="-h"
 
-    >>> mvn compile
-
-=== Running ===
-
-To display usage information, use
-
-    >>> mvn exec:java -Dexec.mainClass=${package}.MyAppMain -Dexec.args="-h"
-
-To execute the sketch, use
-
-    >>> mvn exec:java -Dexec.mainClass=${package}.MyAppMain -Dexec.args=""
-
+Take out the "-h" and replace it with whatever arguments your project might require.
