@@ -1,34 +1,32 @@
 package $package
 
-import skalch.DynamicSketch
+import skalch.AngelicSketch
 import sketch.dyn.BackendOptions
-import sketch.util.DebugOut
-import sketch.util._
+import sketch.util.cli
+import sketch.util.DebugOut._ // assertFalse, not_implemented, print()
 
-class MyAppSketch() extends DynamicSketch {
+class MyAppSketch() extends AngelicSketch {
+    val second_value = MyAppCliOptions("second_value")
 
-    def dysketch_main() = {
+    val tests = Array( () )
+    def main() {
         synthAssertTerminal(??(List("a", "b", "c")) == "c")
-        ??(100) == 63
+        synthAssertTerminal(??(100) == 63)
     }
+}
 
-    val test_generator = new TestGenerator {
-        // this is supposed to be expressive only, recover it with Java reflection if necessary
-        def set(x : Int, v : Boolean) {
-            put_default_input(x)
-        }
-
-        def tests() {
-            for (ctr <- 0 until 4)
-                test_case(new java.lang.Integer(ctr), new java.lang.Boolean(false))
-        }
-    }
+object MyAppCliOptions extends cli.CliOptionGroup {
+    var result : cli.CliOptionResult = null
+    import java.lang.Integer
+    add("--second_value", 63 : Integer, "value which the second hole should match")
+    def apply(x : String) : Int = result.long_(x).intValue
 }
 
 object MyAppMain {
     def main(args: Array[String])  = {
         val cmdopts = new cli.CliParser(args)
         BackendOptions.add_opts(cmdopts)
-        skalch.synthesize(() => new MyAppSketch())
+        MyAppCliOptions.result = MyAppCliOptions.parse(cmdopts)
+        skalch.AngelicSketchSynthesize(() => new MyAppSketch())
     }
 }
