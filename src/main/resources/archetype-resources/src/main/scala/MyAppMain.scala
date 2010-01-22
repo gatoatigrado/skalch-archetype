@@ -10,8 +10,8 @@ class MyAppSketch() extends AngelicSketch {
 
     val tests = Array( () )
     def main() {
-        synthAssertTerminal(??(List("a", "b", "c")) == "c")
-        synthAssertTerminal(??(100) == 63)
+        synthAssert(??(List("a", "b", "c")) == "c")
+        synthAssert(??(100) == 63)
     }
 }
 
