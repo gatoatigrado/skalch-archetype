@@ -9,7 +9,7 @@
 
     <properties>
         <skalch.version>0.02</skalch.version>
-        <scala.version>2.8.0-SNAPSHOT</scala.version>
+        <scala.version>2.8.0.Beta1-RC8</scala.version>
         <maven.scala.version>2.13</maven.scala.version>
     </properties>
 

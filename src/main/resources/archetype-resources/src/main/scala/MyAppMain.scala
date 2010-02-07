@@ -6,7 +6,7 @@ import sketch.util.cli
 import sketch.util.DebugOut._ // assertFalse, not_implemented, print()
 
 class MyAppSketch() extends AngelicSketch {
-    val second_value = MyAppCliOptions("second_value")
+    val second_value = MyAppCliOptions("second-value")
 
     val tests = Array( () )
     def main() {
@@ -18,8 +18,8 @@ class MyAppSketch() extends AngelicSketch {
 object MyAppCliOptions extends cli.CliOptionGroup {
     var result : cli.CliOptionResult = null
     import java.lang.Integer
-    add("--second_value", 63 : Integer, "value which the second hole should match")
-    def apply(x : String) : Int = result.long_(x).intValue
+    addOption("second-value", 63 : Integer, "value which the second hole should match")
+    def apply(x : String) : Int = result.int_(x).intValue
 }
 
 object MyAppMain {
